@@ -203,27 +203,27 @@ function applyColorHue(data) {
   const blueValue = parseFloat(document.getElementById('blueSlider').value);
   const isTouched = redValue > 0 || greenValue > 0 || blueValue > 0;
 
-   if (isTouched) {
-     const averageValue = (redValue + greenValue + blueValue) / 3;
-     const isGrayscale = redValue === averageValue || greenValue === averageValue || blueValue === averageValue;
- 
-     if (isGrayscale && averageValue !== 255) {
-       for (let i = 0; i < data.length; i += 4) {
-         const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
-         data[i] = avg;
-         data[i + 1] = avg;
-         data[i + 2] = avg;
-       }
-     } else {
-       const maxSliderValue = 255;
-       for (let i = 0; i < data.length; i += 4) {
-         data[i] = (data[i] + redValue * (maxSliderValue / 255)) % 500;
-         data[i + 1] = (data[i + 1] + greenValue * (maxSliderValue / 255)) % 500;
-         data[i + 2] = (data[i + 2] + blueValue * (maxSliderValue / 255)) % 500;
-       }
-     }
-   }
- }
+  if (isTouched) {
+    const averageValue = (redValue + greenValue + blueValue) / 3;
+    const isGrayscale = redValue === averageValue || greenValue === averageValue || blueValue === averageValue;
+
+    if (isGrayscale && averageValue !== 255) {
+      for (let i = 0; i < data.length; i += 4) {
+        const avg = 0.34 * data[i] + 0.5 * data[i + 1] + 0.16 * data[i + 2];
+        data[i] = avg;
+        data[i + 1] = avg;
+        data[i + 2] = avg;
+      }
+    } else {
+      const maxSliderValue = 255;
+      for (let i = 0; i < data.length; i += 4) {
+        data[i] = (data[i] + redValue * (maxSliderValue / 255)) % 500;
+        data[i + 1] = (data[i + 1] + greenValue * (maxSliderValue / 255)) % 500;
+        data[i + 2] = (data[i + 2] + blueValue * (maxSliderValue / 255)) % 500;
+      }
+    }
+  }
+}
 
 function applyAdjustments(data) {
   const brightnessValue = parseFloat(document.getElementById('brightnessSlider').value);
