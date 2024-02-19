@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Editor</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<div class="title">
+    <h1>IMAGE EDITOR</h1>
+</div>
+<div id="options-container">
+  <label for="grayscaleCheckbox">Grayscale</label>
+  <input type="checkbox" id="grayscaleCheckbox">
+  <label for="binaryCheckbox">Binary</label>
+  <input type="checkbox" id="binaryCheckbox">
+  <label for="colorHueCheckbox">Color Hue</label>
+  <input type="checkbox" id="colorHueCheckbox">
+  <label for="adjustmentsOptions">Adjustments</label>
+  <input type="checkbox" id="adjustmentsOptions">
+</div>
+<label for="fileInput">Choose an image</label>
+<input type="file" id="fileInput">    
+<button id="convertBtn">Convert</button>
+
+<div id="colorHueOptions" class="option-container" style="display:none">
+  <label id="redSliderLabel" for="redSlider">Red: <span id="redValue">0</span></label>
+  <input type="range" id="redSlider" min="0" max="255" value="0" class="slider">
+  <label id="greenSliderLabel" for="greenSlider">Green: <span id="greenValue">0</span></label>
+  <input type="range" id="greenSlider" min="0" max="255" value="0" class="slider">
+  <label id="blueSliderLabel" for="blueSlider">Blue: <span id="blueValue">0</span></label>
+  <input type="range" id="blueSlider" min="0" max="255" value="0" class="slider">
+</div>
+
+<div id="adjustmentsContainer" class="option-container" style="display:none">
+  <label for="brightnessSlider">Brightness: <span id="brightnessValue">0</span></label>
+  <input type="range" id="brightnessSlider" min="-100" max="100" value="0">
+  <label for="contrastSlider">Contrast: <span id="contrastValue">1</span></label>
+  <input type="range" id="contrastSlider" min="0" max="2" step="0.1" value="1">
+  <label for="opacitySlider">Opacity: <span id="opacityValue">1</span></label>
+  <input type="range" id="opacitySlider" min="0" max="1" step="0.01" value="1">
+  <label for="saturationSlider">Saturation: <span id="saturationValue">1</span></label>
+  <input type="range" id="saturationSlider" min="0" max="2" step="0.01" value="1">
+  <label for="sharpnessSlider">Sharpness: <span id="sharpnessValue">0</span></label>
+  <input type="range" id="sharpnessSlider" min="0" max="2" value="0">
+  <label for="blurSlider">Blur: <span id="blurValue">0</span></label>
+  <input type="range" id="blurSlider" min="0" max="2" value="0">
+
+</div>
+
+<div class="option-container">
+  <label for="filterSelect">Filter</label>
+  <select id="filterSelect">
+    <option value="none">None</option>
+    <option value="sepia">Sepia</option>
+    <option value="vivid">Vivid</option>
+    <option value="mono">Monochrome</option>
+    <option value="noir">Noir</option>
+    <option value="lark">Lark</option>
+    <option value="amaro">Amaro</option>
+    <option value="blackandwhite">Black and White</option>
+    <option value="santorini">Santorini</option>
+    <option value="tranquil">Tranquil</option>
+    <option value="gradient">Gradient</option>
+    <option value="sunglow">Sunglow</option>
+  </select>
+</div>
+
+<div id="editor-container">
+  <div id="images-container">
+    <div id="original-container">
+      <h2>Original Image</h2>
+      <img id="original-img" src="#" alt="Original Image">
+    </div>
+    <div id="processed-container">
+      <h2>Edited Image</h2>
+      <img id="processed-img" src="#" alt="Edited Image">
+    </div>
+  </div>
+</div>
+<script src="rgb.js"></script>
+</body>
+</html>
+
